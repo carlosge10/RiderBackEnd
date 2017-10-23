@@ -18,14 +18,12 @@ namespace RiderBackEnd.Controllers
         {
             List<Persona> names = new List<Persona>();
 
-            //MongoServer server = MongoServer.Create(ConfigurationManager.AppSettings["ConnectionString"]);
             String connectionString = ConfigurationManager.AppSettings["ConnectionString"];
             MongoClient client = new MongoClient(connectionString);
             IMongoDatabase db = client.GetDatabase("riderproto");
             IMongoCollection<Persona> personas = db.GetCollection<Persona>("HelloMongo");
             Persona p1 = new Persona();
             p1.name = "Damian";
-            p1.value = 3;
             personas.InsertOne(p1);
             String res = "";
             foreach (Persona p in personas.Find(new BsonDocument()).ToList()) {

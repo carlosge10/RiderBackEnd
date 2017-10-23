@@ -23,6 +23,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,6 +44,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Facebook, Version=6.0.10.0, Culture=neutral, PublicKeyToken=58cb4f2111d1e6de, processorArchitecture=MSIL">
+      <HintPath>..\packages\Facebook.7.0.6\lib\net45\Facebook.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -119,16 +123,31 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\API_Controllers\ChoferController.cs" />
+    <Compile Include="Controllers\API_Controllers\EventsController.cs" />
+    <Compile Include="Controllers\API_Controllers\PassengerController.cs" />
+    <Compile Include="Controllers\API_Controllers\SignUpController.cs" />
+    <Compile Include="Controllers\API_Controllers\ViajesController.cs" />
+    <Compile Include="Controllers\Database\DatabaseInstance.cs" />
+    <Compile Include="Controllers\Database_Controllers\PersonaController.cs" />
     <Compile Include="Controllers\HelloWorldController.cs" />
+    <Compile Include="Controllers\API_Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Carro.cs" />
+    <Compile Include="Models\Evento.cs" />
+    <Compile Include="Models\GeoPoint.cs" />
+    <Compile Include="Models\HarcodedObjects.cs" />
     <Compile Include="Models\Persona.cs" />
+    <Compile Include="Models\PickUpRequest.cs" />
+    <Compile Include="Models\Viaje.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\RiderBackend - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
